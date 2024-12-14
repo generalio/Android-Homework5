@@ -18,32 +18,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.253" />
 
-    <ImageView
-        android:id="@+id/iv_login_account"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/icon_account"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/et_login_account"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45" />
-
-    <ImageView
-        android:id="@+id/iv_login_password"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/icon_password"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/et_login_password"
-        app:layout_constraintHorizontal_bias="0.984"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_login_account"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="MissingConstraints" />
-    <EditText
-        android:id="@+id/et_login_account"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_login_account"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="200dp"
-        android:layout_height="40dp"
+        android:layout_height="60dp"
+        app:counterEnabled="true"
         android:hint="账号"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,15 +31,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.45"
-        />
-    <EditText
-        android:id="@+id/et_login_password"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_login_account"
+            android:maxLines="1"
+            android:drawableStart="@drawable/icon_account"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:textSize="15sp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_tli_password"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="200dp"
-        android:layout_height="40dp"
+        android:layout_height="60dp"
+        app:counterEnabled="true"
         android:hint="密码"
+        app:passwordToggleEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_login_account" />
+        app:layout_constraintTop_toBottomOf="@+id/til_login_account">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_login_password"
+            android:maxLines="1"
+            android:drawableStart="@drawable/icon_password"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:textSize="15sp"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btn_login_login"
@@ -68,10 +69,10 @@
         android:gravity="center"
         android:text="登录"
         android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/et_login_password"
+        app:layout_constraintEnd_toEndOf="@+id/et_tli_password"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_login_password" />
+        app:layout_constraintTop_toBottomOf="@+id/et_tli_password" />
 
     <Button
         android:id="@+id/btn_login_sign"
@@ -89,8 +90,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="记住密码"
-        app:layout_constraintStart_toStartOf="@+id/iv_login_password"
-        app:layout_constraintTop_toBottomOf="@+id/et_login_password" />
+        app:layout_constraintStart_toStartOf="@+id/et_tli_password"
+        app:layout_constraintTop_toBottomOf="@+id/et_tli_password" />
 
 
 
